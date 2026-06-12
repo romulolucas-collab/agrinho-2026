@@ -7,13 +7,21 @@
 
 <style>
 
+/* =========================
+   ESTILO GERAL
+========================= */
+
 body{
     margin:0;
     font-family:Verdana, sans-serif;
     background:#eef7ee;
+    transition:0.3s;
 }
 
-/* BOTÃO FIXO (CANTO DA TELA) */
+/* =========================
+   BOTÃO DE TEMA (FIXO)
+========================= */
+
 #temaBtn{
     position:fixed;
     top:15px;
@@ -29,7 +37,10 @@ body{
     box-shadow:0 2px 8px rgba(0,0,0,0.2);
 }
 
-/* CABEÇALHO */
+/* =========================
+   CABEÇALHO
+========================= */
+
 header{
     background:#2e8b57;
     color:white;
@@ -37,7 +48,10 @@ header{
     padding:30px;
 }
 
-/* MENU */
+/* =========================
+   MENU
+========================= */
+
 nav{
     background:#1f6b42;
     text-align:center;
@@ -55,12 +69,15 @@ nav a:hover{
     color:#c8ffb0;
 }
 
-/* SEÇÕES */
+/* =========================
+   CONTEÚDO
+========================= */
+
 section{
     padding:30px;
 }
 
-/* CARDS */
+/* CARD */
 .card{
     background:white;
     padding:20px;
@@ -70,7 +87,10 @@ section{
     box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* INTERAÇÃO */
+/* =========================
+   INTERAÇÃO
+========================= */
+
 .interacao{
     text-align:center;
 }
@@ -83,6 +103,7 @@ button{
     border-radius:5px;
     cursor:pointer;
     font-size:16px;
+    transition:0.2s;
 }
 
 button:hover{
@@ -96,7 +117,10 @@ button:hover{
     font-size:18px;
 }
 
-/* RODAPÉ */
+/* =========================
+   RODAPÉ
+========================= */
+
 footer{
     background:#2e8b57;
     color:white;
@@ -105,7 +129,10 @@ footer{
     margin-top:20px;
 }
 
-/* MODO ESCURO */
+/* =========================
+   MODO ESCURO
+========================= */
+
 .dark-mode{
     background:#121212;
     color:white;
@@ -139,21 +166,24 @@ footer{
 <body>
 
 <!-- BOTÃO FIXO -->
-<button onclick="alternarTema()" id="temaBtn">
+<button id="temaBtn" onclick="alternarTema()">
     🌙 Modo Escuro
 </button>
 
+<!-- CABEÇALHO -->
 <header>
     <h1>🌾 Agro Futuro</h1>
     <p>Inovação e tecnologia para o campo</p>
 </header>
 
+<!-- MENU -->
 <nav>
     <a href="#inicio">Início</a>
     <a href="#beneficios">Benefícios</a>
     <a href="#vantagens">Vantagens</a>
 </nav>
 
+<!-- INÍCIO -->
 <section id="inicio">
     <h2>Bem-vindo ao Agro Futuro</h2>
 
@@ -165,6 +195,7 @@ footer{
     </div>
 </section>
 
+<!-- BENEFÍCIOS -->
 <section id="beneficios">
     <h2>Principais Benefícios</h2>
 
@@ -174,8 +205,8 @@ footer{
     <div class="card">📊 Análise de dados para melhorar as colheitas</div>
 </section>
 
+<!-- INTERAÇÃO -->
 <section id="vantagens" class="interacao">
-
     <h2>Descubra uma Vantagem</h2>
 
     <p>Clique no botão abaixo:</p>
@@ -185,28 +216,30 @@ footer{
     </button>
 
     <div id="resultado"></div>
-
 </section>
 
+<!-- RODAPÉ -->
 <footer>
     <p>© 2026 Agro Futuro - O Novo Agro</p>
 </footer>
 
 <script>
 
-// carregar tema salvo
+/* =========================
+   MODO ESCURO
+========================= */
+
 window.onload = function(){
 
     const temaSalvo = localStorage.getItem("tema");
 
     if(temaSalvo === "escuro"){
         document.body.classList.add("dark-mode");
-        document.getElementById("temaBtn").innerHTML =
-        "☀️ Modo Claro";
+        document.getElementById("temaBtn").innerHTML = "☀️ Modo Claro";
     }
 }
 
-// alternar tema
+/* ALTERAR TEMA */
 function alternarTema(){
 
     document.body.classList.toggle("dark-mode");
@@ -222,7 +255,7 @@ function alternarTema(){
     }
 }
 
-// mostrar vantagem aleatória
+/* VANTAGENS ALEATÓRIAS */
 function mostrarMensagem(){
 
     const vantagens = [
@@ -234,7 +267,7 @@ function mostrarMensagem(){
         "🚁 Monitoramento rápido com drones."
     ];
 
-    let numero = Math.floor(Math.random() * vantagens.length);
+    const numero = Math.floor(Math.random() * vantagens.length);
 
     document.getElementById("resultado").innerHTML =
         vantagens[numero];
