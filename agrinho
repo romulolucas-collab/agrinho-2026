@@ -6,12 +6,30 @@
 <title>Agro Futuro</title>
 
 <style>
+
 body{
     margin:0;
     font-family:Verdana, sans-serif;
     background:#eef7ee;
 }
 
+/* BOTÃO FIXO (CANTO DA TELA) */
+#temaBtn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:white;
+    color:black;
+    font-weight:bold;
+    z-index:1000;
+    box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* CABEÇALHO */
 header{
     background:#2e8b57;
     color:white;
@@ -19,6 +37,7 @@ header{
     padding:30px;
 }
 
+/* MENU */
 nav{
     background:#1f6b42;
     text-align:center;
@@ -36,10 +55,12 @@ nav a:hover{
     color:#c8ffb0;
 }
 
+/* SEÇÕES */
 section{
     padding:30px;
 }
 
+/* CARDS */
 .card{
     background:white;
     padding:20px;
@@ -49,6 +70,7 @@ section{
     box-shadow:0 2px 5px rgba(0,0,0,0.1);
 }
 
+/* INTERAÇÃO */
 .interacao{
     text-align:center;
 }
@@ -74,6 +96,7 @@ button:hover{
     font-size:18px;
 }
 
+/* RODAPÉ */
 footer{
     background:#2e8b57;
     color:white;
@@ -81,9 +104,44 @@ footer{
     padding:15px;
     margin-top:20px;
 }
+
+/* MODO ESCURO */
+.dark-mode{
+    background:#121212;
+    color:white;
+}
+
+.dark-mode .card{
+    background:#1e1e1e;
+    color:white;
+    border-left:5px solid #4CAF50;
+}
+
+.dark-mode nav{
+    background:#111;
+}
+
+.dark-mode header{
+    background:#0a5c2d;
+}
+
+.dark-mode footer{
+    background:#0a5c2d;
+}
+
+.dark-mode #resultado{
+    color:#90ee90;
+}
+
 </style>
 </head>
+
 <body>
+
+<!-- BOTÃO FIXO -->
+<button onclick="alternarTema()" id="temaBtn">
+    🌙 Modo Escuro
+</button>
 
 <header>
     <h1>🌾 Agro Futuro</h1>
@@ -117,6 +175,7 @@ footer{
 </section>
 
 <section id="vantagens" class="interacao">
+
     <h2>Descubra uma Vantagem</h2>
 
     <p>Clique no botão abaixo:</p>
@@ -126,6 +185,7 @@ footer{
     </button>
 
     <div id="resultado"></div>
+
 </section>
 
 <footer>
@@ -133,7 +193,37 @@ footer{
 </footer>
 
 <script>
-function mostrarMensagem() {
+
+// carregar tema salvo
+window.onload = function(){
+
+    const temaSalvo = localStorage.getItem("tema");
+
+    if(temaSalvo === "escuro"){
+        document.body.classList.add("dark-mode");
+        document.getElementById("temaBtn").innerHTML =
+        "☀️ Modo Claro";
+    }
+}
+
+// alternar tema
+function alternarTema(){
+
+    document.body.classList.toggle("dark-mode");
+
+    const botao = document.getElementById("temaBtn");
+
+    if(document.body.classList.contains("dark-mode")){
+        botao.innerHTML = "☀️ Modo Claro";
+        localStorage.setItem("tema","escuro");
+    }else{
+        botao.innerHTML = "🌙 Modo Escuro";
+        localStorage.setItem("tema","claro");
+    }
+}
+
+// mostrar vantagem aleatória
+function mostrarMensagem(){
 
     const vantagens = [
         "🌾 Maior produtividade nas lavouras.",
@@ -149,6 +239,7 @@ function mostrarMensagem() {
     document.getElementById("resultado").innerHTML =
         vantagens[numero];
 }
+
 </script>
 
 </body>
