@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Novo Agro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f2;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        nav {
+            background-color: #1b5e20;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #c8e6c9;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+
+        .banner {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #e8f5e9;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌱 O Novo Agro</h1>
+        <p>Tecnologia, Sustentabilidade e Inovação no Campo</p>
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#tecnologia">Tecnologia</a>
+        <a href="#sustentabilidade">Sustentabilidade</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <div class="container">
+
+        <section class="banner" id="sobre">
+            <h2>Transformando o Agronegócio</h2>
+            <p>
+                O Novo Agro conecta produtores rurais às tecnologias mais avançadas,
+                promovendo eficiência, produtividade e respeito ao meio ambiente.
+            </p>
+            <button onclick="alert('Bem-vindo ao futuro do Agro!')">
+                Saiba Mais
+            </button>
+        </section>
+
+        <section class="cards">
+            <div class="card" id="tecnologia">
+                <h3>🚜 Agricultura de Precisão</h3>
+                <p>
+                    Uso de drones, sensores e inteligência artificial para monitorar
+                    lavouras e aumentar a produtividade.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>📡 Monitoramento Inteligente</h3>
+                <p>
+                    Dados em tempo real ajudam produtores a tomar decisões rápidas e precisas.
+                </p>
+            </div>
+
+            <div class="card" id="sustentabilidade">
+                <h3>🌍 Sustentabilidade</h3>
+                <p>
+                    Produção agrícola com menor impacto ambiental e melhor aproveitamento
+                    dos recursos naturais.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>💡 Inovação no Campo</h3>
+                <p>
+                    Máquinas autônomas e soluções digitais impulsionam o agro moderno.
+                </p>
+            </div>
+        </section>
+
+    </div>
+
+    <footer id="contato">
+        <p>© 2026 O Novo Agro | Inovação para o futuro do campo</p>
+    </footer>
+
+</body>
+</html>
