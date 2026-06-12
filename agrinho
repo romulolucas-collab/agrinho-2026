@@ -1,175 +1,377 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Novo Agro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O Novo Agro</title>
 
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f4f7f2;
-            color: #333;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        header {
-            background: linear-gradient(135deg, #2e7d32, #66bb6a);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
+<style>
 
-        header h1 {
-            font-size: 3rem;
-        }
+:root{
+    --verde:#2E7D32;
+    --verde-claro:#4CAF50;
+    --verde-escuro:#1B5E20;
+    --branco:#ffffff;
+    --cinza:#f4f7f2;
+}
 
-        nav {
-            background-color: #1b5e20;
-            padding: 15px;
-            text-align: center;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        nav a:hover {
-            color: #c8e6c9;
-        }
+body{
+    background:var(--cinza);
+    color:#333;
+}
 
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 30px auto;
-        }
+/* NAVBAR */
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
 
-        .card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
+.logo{
+    color:white;
+    font-size:1.6rem;
+    font-weight:700;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.menu a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+}
 
-        .card h3 {
-            color: #2e7d32;
-            margin-bottom: 10px;
-        }
+.menu a:hover{
+    color:#90EE90;
+}
 
-        .banner {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #e8f5e9;
-            margin: 30px 0;
-            border-radius: 10px;
-        }
+/* HERO */
 
-        footer {
-            background-color: #1b5e20;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
 
-        button {
-            background-color: #2e7d32;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 15px;
-        }
+.hero-content{
+    max-width:900px;
+    animation:fadeIn 1.5s ease;
+}
 
-        button:hover {
-            background-color: #1b5e20;
-        }
-    </style>
+.hero h1{
+    font-size:4rem;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:var(--verde-claro);
+    color:white;
+    text-decoration:none;
+    border-radius:40px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    background:var(--verde);
+}
+
+/* SOBRE */
+
+.section{
+    padding:90px 8%;
+}
+
+.title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    color:var(--verde-escuro);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card span{
+    font-size:3rem;
+}
+
+.card h3{
+    margin:15px 0;
+    color:var(--verde);
+}
+
+/* ESTATÍSTICAS */
+
+.stats{
+    background:linear-gradient(135deg,var(--verde),var(--verde-claro));
+    color:white;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+    text-align:center;
+}
+
+.number{
+    font-size:3rem;
+    font-weight:700;
+}
+
+.label{
+    font-size:1.1rem;
+}
+
+/* GALERIA */
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* CONTATO */
+
+.contact{
+    text-align:center;
+}
+
+.contact button{
+    border:none;
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    background:var(--verde-escuro);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.menu{
+    display:none;
+}
+
+}
+
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>🌱 O Novo Agro</h1>
-        <p>Tecnologia, Sustentabilidade e Inovação no Campo</p>
-    </header>
+<nav>
+    <div class="logo">🌱 O Novo Agro</div>
 
-    <nav>
+    <div class="menu">
         <a href="#sobre">Sobre</a>
-        <a href="#tecnologia">Tecnologia</a>
-        <a href="#sustentabilidade">Sustentabilidade</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#galeria">Galeria</a>
         <a href="#contato">Contato</a>
-    </nav>
+    </div>
+</nav>
 
-    <div class="container">
+<section class="hero">
 
-        <section class="banner" id="sobre">
-            <h2>Transformando o Agronegócio</h2>
-            <p>
-                O Novo Agro conecta produtores rurais às tecnologias mais avançadas,
-                promovendo eficiência, produtividade e respeito ao meio ambiente.
-            </p>
-            <button onclick="alert('Bem-vindo ao futuro do Agro!')">
-                Saiba Mais
-            </button>
-        </section>
+    <div class="hero-content">
 
-        <section class="cards">
-            <div class="card" id="tecnologia">
-                <h3>🚜 Agricultura de Precisão</h3>
-                <p>
-                    Uso de drones, sensores e inteligência artificial para monitorar
-                    lavouras e aumentar a produtividade.
-                </p>
-            </div>
+        <h1>O Futuro do Agronegócio Já Começou</h1>
 
-            <div class="card">
-                <h3>📡 Monitoramento Inteligente</h3>
-                <p>
-                    Dados em tempo real ajudam produtores a tomar decisões rápidas e precisas.
-                </p>
-            </div>
+        <p>
+            Inovação, tecnologia e sustentabilidade transformando
+            a produção agrícola brasileira.
+        </p>
 
-            <div class="card" id="sustentabilidade">
-                <h3>🌍 Sustentabilidade</h3>
-                <p>
-                    Produção agrícola com menor impacto ambiental e melhor aproveitamento
-                    dos recursos naturais.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>💡 Inovação no Campo</h3>
-                <p>
-                    Máquinas autônomas e soluções digitais impulsionam o agro moderno.
-                </p>
-            </div>
-        </section>
+        <a href="#sobre" class="btn">Explorar</a>
 
     </div>
 
-    <footer id="contato">
-        <p>© 2026 O Novo Agro | Inovação para o futuro do campo</p>
-    </footer>
+</section>
+
+<section class="section" id="sobre">
+
+    <h2 class="title">O Novo Agro</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <span>🚜</span>
+            <h3>Agricultura de Precisão</h3>
+            <p>Drones, GPS e sensores para aumentar a produtividade.</p>
+        </div>
+
+        <div class="card">
+            <span>📡</span>
+            <h3>Monitoramento Inteligente</h3>
+            <p>Dados em tempo real para decisões mais eficientes.</p>
+        </div>
+
+        <div class="card">
+            <span>🌎</span>
+            <h3>Sustentabilidade</h3>
+            <p>Produção responsável e preservação ambiental.</p>
+        </div>
+
+        <div class="card">
+            <span>🤖</span>
+            <h3>Inteligência Artificial</h3>
+            <p>Automação e análise avançada para o campo.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section stats">
+
+    <div class="stats-grid">
+
+        <div>
+            <div class="number">85%</div>
+            <div class="label">Aumento na Eficiência</div>
+        </div>
+
+        <div>
+            <div class="number">50+</div>
+            <div class="label">Tecnologias Integradas</div>
+        </div>
+
+        <div>
+            <div class="number">100%</div>
+            <div class="label">Foco Sustentável</div>
+        </div>
+
+        <div>
+            <div class="number">24h</div>
+            <div class="label">Monitoramento Digital</div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" id="galeria">
+
+    <h2 class="title">Agro em Transformação</h2>
+
+    <div class="gallery">
+
+        <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854" alt="Agricultura">
+
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef" alt="Plantação">
+
+        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399" alt="Tecnologia agrícola">
+
+    </div>
+
+</section>
+
+<section class="section contact" id="contato">
+
+    <h2 class="title">Faça Parte do Futuro do Agro</h2>
+
+    <p>
+        Conheça soluções inovadoras para transformar sua produção.
+    </p>
+
+    <br>
+
+    <button class="btn"
+    onclick="alert('Obrigado pelo interesse no Novo Agro!')">
+        Entrar em Contato
+    </button>
+
+</section>
+
+<footer>
+    © 2026 O Novo Agro | Tecnologia, Sustentabilidade e Inovação
+</footer>
 
 </body>
 </html>
